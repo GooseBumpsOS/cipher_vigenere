@@ -38,9 +38,9 @@ var vizhener = {
 *
 * */
 
-
-document.write (vizhener.encryption("en", "ATTACKATDAWN", "LEMONLEMONLE") + "<br>"); //(en) шифруем
-document.write (vizhener.decryption("en", "LEMONLEMONLE", "LXFOPVEFRNHR") + "<br>"); //(en) расшифровываем
-
-document.write (vizhener.encryption("ru", "ПОЖАРГОРИМ", "ЖОПАЖОПАЖО") + "<br>"); //(ru) шифруем
-document.write (vizhener.decryption("ru", "ЖОПАЖОПАЖО", "ЦЭЦАЧСЮРПЫ") + "<br>"); //(ru) расшифровываем
+//
+// document.write (vizhener.encryption("en", "ATTACKATDAWN", "LEMONLEMONLE") + "<br>"); //(en) шифруем
+// document.write (vizhener.decryption("en", "LEMONLEMONLE", "LXFOPVEFRNHR") + "<br>"); //(en) расшифровываем
+//
+// document.write (vizhener.encryption("ru", "ПОЖАРГОРИМ", "ЖОПАЖОПАЖО") + "<br>"); //(ru) шифруем
+// document.write (vizhener.decryption("ru", "ЖОПАЖОПАЖО", "ЦЭЦАЧСЮРПЫ") + "<br>"); //(ru) расшифровываем

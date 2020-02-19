@@ -9,7 +9,7 @@
     <title>ИБ виженер</title>
     <style>
 
-        .input-area > input{
+        .input-area > input, button{
             margin-top: 15px;
 
         }
@@ -21,10 +21,11 @@
 <h1 style="text-align: center">Шифр Вижнера</h1>
 <div class="input-area">
 
-    <input class="form-control" type="text" placeholder="Открытый текст">
-    <input class="form-control" type="text" placeholder="Ключ">
-    <input class="form-control" type="text" placeholder="Шифротекст">
+    <input class="form-control" id="openText" type="text" placeholder="Открытый текст">
+    <input class="form-control" id="key" type="text" placeholder="Ключ">
+    <input class="form-control" id="cipherText" type="text" placeholder="Шифротекст">
 
+    <button type="button" id="buttonStart" class="btn btn-success">Расшифровка/Дешифровка</button>
 </div>
 
 
@@ -33,4 +34,5 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="crypt.js"></script>
+<script src="input-handler.js"></script>
 </html>
