@@ -5,37 +5,53 @@ $('#buttonStart').click(function () {
     let cipherText = $('#cipherText').val();
 
     if (openText.length > 0)
-        openToCrypt(key, openText, languageTest(openText));
+        openToCrypt(key, openText, languageTest(openText, key));
     else
-        cryptToOpen(key, cipherText, languageTest(cipherText));
+        cryptToOpen(key, cipherText, languageTest(cipherText, key));
+
+
+});
+$('input[type=radio]').change(function () {
+
+    clearAllinput();
+
+});
+
+function clearAllinput() {
+
+    $('#openText').val("");
+    $('#key').val("");
+    $('#cipherText').val("");
+
+}
+
+$('input').keyup(function () {
+
+    $(this).val(clearInputByPattern($(this).val()));
 
 
 });
 
-$('#openText').keyup(function () {
+function clearInputByPattern(text) {
 
-    $(this).val(deleteNum($(this).val()));
+    text = text.replace(/[0-9]/g, '');
 
-});
-
-$('#cipherText').keyup(function () {
-
-    $(this).val(deleteNum($(this).val()));
-
-});
-
-function deleteNum(text) {
-
-    return text.replace(/[0-9]/g, '');
+    if ($('#ruRadio').prop("checked") === true) {
+        text = text.replace(/[A-Za-z]/g, '');
+    } else {
+        text = text.replace(/[А-Яа-я]/g, '');
+    }
+    return text;
 
 }
 
 
 function languageTest(text) {
 
-    if (text.search(/[а-яА-Я]+/gu) !== -1 && text.search(/[a-zA-Z]+/gu) !== -1) {
+    if ((text.search(/[а-яА-Я]+/gu) !== -1 && text.search(/[a-zA-Z]+/gu) !== -1)) {
 
         alert('Некорректный ввод');
+        clearAllinput();
         throw new Error('Некорректный ввод. Встретились два типа языка');
 
     }
@@ -49,13 +65,20 @@ function languageTest(text) {
 }
 
 function openToCrypt(key, text, lang) {
-
-    console.log(vizhener.encryption('ru', text.toUpperCase, key));;
-
+    if (!(key.length > 0 && text.length > 0)) {
+        alert('Не все поля заполнены');
+        throw new Error('empty fields');
+    }
+    clearAllinput();
+    $('#cipherText').val(vizhener.encryption(lang, text.toUpperCase(), key.toUpperCase()));
 }
 
 function cryptToOpen(key, text, lang) {
-
-    console.log(vizhener.decryption(lang, key.toUpperCase, text));
+    if (!(key.length > 0 && text.length > 0)){
+        alert('Не все поля заполнены');
+        throw new Error('empty fields');
+    }
+    clearAllinput();
+    $('#openText').val(vizhener.decryption(lang, key.toUpperCase(), text.toUpperCase()));
 
 }

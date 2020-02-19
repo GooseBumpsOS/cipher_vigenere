@@ -9,7 +9,7 @@
     <title>ИБ виженер</title>
     <style>
 
-        .input-area > input, button{
+        .input-area > input, button, .radio{
             margin-top: 15px;
 
         }
@@ -21,9 +21,16 @@
 <h1 style="text-align: center">Шифр Виженера</h1>
 <div class="input-area">
 
-    <input class="form-control" id="openText" type="text" placeholder="Открытый текст">
-    <input class="form-control" id="key" type="text" placeholder="Ключ">
+    <input class="form-control" id="openText"  type="text" placeholder="Открытый текст">
+    <input class="form-control" id="key" type="text" min="1" required  placeholder="Ключ">
     <input class="form-control" id="cipherText" type="text" placeholder="Шифротекст">
+
+    <div class="radio">
+        <label><input type="radio" name="optradio" id="ruRadio" checked>Русский</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="optradio">Английский</label>
+    </div>
 
     <button type="button" id="buttonStart" class="btn btn-success">Расшифровка/Дешифровка</button>
 </div>

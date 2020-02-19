@@ -32,12 +32,12 @@ var vizhener = {
     },
     genKey : function (text, key) {
 
-        for (let i = 0; i < Math.ceil(text.length/key.length); i++) {
+        for (let i = 0; i < Math.ceil(text.length/key.length)-1; i++) {
 
             key = key.concat(key);
         }
 
-        key = key.concat(key.slice(0, text.length % key.length));
+        key = key.concat(key.slice(0, text.length - key.length));
 
         console.log(key);
         console.log(text);
@@ -46,14 +46,6 @@ var vizhener = {
 
     }
 };
-
-/*
-*
-* vizhener.encryption (язык шифра - ru | en , шифруемый текст , текст ключ)
-*
-* vizhener.decryption (язык шифра - ru | en , ключ , текст шифра)
-*
-* */
 
 //
 // document.write (vizhener.encryption("en", "ATTACKATDAWN", "LEMONLEMONLE") + "<br>"); //(en) шифруем
