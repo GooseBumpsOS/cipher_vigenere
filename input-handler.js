@@ -50,12 +50,12 @@ function languageTest(text) {
 
 function openToCrypt(key, text, lang) {
 
-    console.log(vizhener.encryption(lang, text, key));;
+    console.log(vizhener.encryption('ru', text.toUpperCase, key));;
 
 }
 
 function cryptToOpen(key, text, lang) {
 
-    console.log(vizhener.decryption(lang, key, text));
+    console.log(vizhener.decryption(lang, key.toUpperCase, text));
 
 }

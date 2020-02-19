@@ -9,7 +9,8 @@ var vizhener = {
         }
     },
     encryption : function (lang, text, key) {
-        if (lang !== "ru" && lang !== "en" || text.length !== key.length) return false;
+        if (lang !== "ru" && lang !== "en") return false;
+        if (text.length !== key.length) key = this.genKey(text, key);
         this.genSqViz(lang);
         var s = "";
         for (var i = 0; i < text.length; i++) {
@@ -18,7 +19,8 @@ var vizhener = {
         return s;
     },
     decryption : function (lang, key, cipher) {
-        if (lang !== "ru" && lang !== "en" || cipher.length !== key.length) return false;
+        if (lang !== "ru" && lang !== "en") return false;
+        if (cipher.length !== key.length) key = this.genKey(cipher, key);
         this.genSqViz(lang);
         var s = "";
         for (var i = 0; i < cipher.length; i++) {
@@ -27,6 +29,21 @@ var vizhener = {
             s += this[lang][coll];
         }
         return s;
+    },
+    genKey : function (text, key) {
+
+        for (let i = 0; i < Math.ceil(text.length/key.length); i++) {
+
+            key = key.concat(key);
+        }
+
+        key = key.concat(key.slice(0, text.length % key.length));
+
+        console.log(key);
+        console.log(text);
+
+        return key;
+
     }
 };
 
